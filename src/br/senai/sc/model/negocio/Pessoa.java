@@ -13,7 +13,6 @@ public class Pessoa {
     public Pessoa() {
     }
 
-    
     public int getId() {
         return id;
     }
@@ -45,7 +44,4 @@ public class Pessoa {
     public void setDataCadastro(String dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
-    
-    
-    
 }
