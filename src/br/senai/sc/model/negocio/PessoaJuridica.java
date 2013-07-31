@@ -6,7 +6,7 @@ package br.senai.sc.model.negocio;
  *@version 1.0 31/07/13
  * @author leticia_jesus
  */
-public class PessoaJuridica {
+public class PessoaJuridica extends Pessoa{
     
     private String cnpj;
     private String razaoSocial;
