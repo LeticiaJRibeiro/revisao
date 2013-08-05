@@ -1,5 +1,9 @@
 package br.senai.sc.view;
 
+import br.senai.sc.model.negocio.Funcionario;
+import br.senai.sc.model.persistencia.FuncionarioDAO;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -10,17 +14,25 @@ import javax.swing.JOptionPane;
  */
 public class JanelaPrincipal {
 
-    public void mostraMenu() {
+    public static void main(String[] args) {
+     List<Funcionario> funcionarios = new ArrayList<>();
+    //funcionários cadastrados
+        mostraMenu(funcionarios);
+    }
+
+    public static void mostraMenu(List<Funcionario>funcionarios) {
+        JanelaFuncionario jf = new JanelaFuncionario();
         int opcao = 0;
         do {
-            opcao = Integer.parseInt(JOptionPane.showInputDialog("Informe a opção:"
-                    + "/n1 -funcionario"
-                    + "/n2-cliente"
-                    + "/n3-fornecedor"
-                    + "/n4-transportadora"
-                    + "/n5-sair"));
+            opcao = Integer.parseInt(JOptionPane.showInputDialog(null, "Informe a opção:"
+                    + "\n1 -funcionario"
+                    + "\n2-cliente"
+                    + "\n3-fornecedor"
+                    + "\n4-transportadora"
+                    + "\n5-Sair"));
             switch (opcao) {
                 case 1:
+                   jf.menuFuncionario(funcionarios);
                     break;
                 case 2:
                     break;
@@ -33,7 +45,7 @@ public class JanelaPrincipal {
 
 
             }
-        }
-    
+        } while (opcao != 0);
 
     }
+}
