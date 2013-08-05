@@ -12,15 +12,37 @@ import javax.swing.JOptionPane;
  * @author leticia_jesus
  */
 public class FuncionarioDAO {
-    //Vetor dinâmico para armazenar os funcionários cadastrados.
 
-    private List<Funcionario> funcionarios = new ArrayList<>();
-    //Método para adicionar um funcionário no vetor de funcionários. 
-
-    public void adicionar(Funcionario f) {
+    public void adicionar(Funcionario f,
+            List<Funcionario> funcionarios) {
         funcionarios.add(f);
         JOptionPane.showMessageDialog(null, "Funcionario"
-                + "adicionado comn sucesso.");
+                + "adicionado com sucesso.");
+
+    }
+
+    /*Método que lista todos os funcionáriosS
+     * 
+     */
+    public void listar(List<Funcionario> funcionarios) {
+        String msg = " ";
+        for (Funcionario f : funcionarios) {
+            msg = msg + "\nNome:" + f.getNome()
+                    + "\n Data de nascimento:" + f.getDataNascimento()
+                    + "\n RG:" + f.getRg()
+                    + "\n CPF:" + f.getCpf()
+                    + "\n Endereço:" + f.getEndereço()
+                    + "\n Telefone:" + f.getTelefone()
+                    + "\n Data Cadastro:" + f.getDataCadastro()
+                    + "\n Salário:" + f.getSalario()
+                    + "\n Data Admissão:" + f.getDataAdmissao()
+                    + "\n CTPS" + f.getCtps()
+                    + "\n Cargo" + f.getCargo();
+        }
+        JOptionPane.showMessageDialog(null, msg);
+
+
+
 
     }
 }
