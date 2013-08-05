@@ -47,6 +47,10 @@ public class Funcionario extends PessoaFisica {
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
+
+    public void setSalario(String showInputDialog) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }
