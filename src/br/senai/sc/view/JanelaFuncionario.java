@@ -30,6 +30,7 @@ public class JanelaFuncionario {
                     adicionaFuncionario(funcionarios);
                     break;
                 case 2:
+                    removefuncionario(funcionarios);
                     break;
                 case 3:
                     break;
@@ -79,5 +80,11 @@ public class JanelaFuncionario {
     private void listaFuncionarios(List<Funcionario>funcionarios) {
            FuncionarioDAO dao = new FuncionarioDAO();
            dao.listar(funcionarios);
+    }
+
+    private void removefuncionario(List<Funcionario> funcionarios) {
+        FuncionarioDAO dao = new FuncionarioDAO();
+       String nome = JOptionPane.showInputDialog("Informe o nome do funcionário que deseja excluir");
+       dao.excluir(nome, funcionarios);
     }
 }
