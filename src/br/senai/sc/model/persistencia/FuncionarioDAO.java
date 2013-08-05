@@ -40,6 +40,14 @@ public class FuncionarioDAO {
                     + "\n Cargo" + f.getCargo();
         }
         JOptionPane.showMessageDialog(null, msg);
+    }
+    public void excluir(String nome,List<Funcionario>funcionarios){
+       Funcionario fRemove = null;
+       for(Funcionario f: funcionarios){
+           if(f.getNome().equals(nome)){
+               fRemove=f;
+           }
+       }
 
 
 
