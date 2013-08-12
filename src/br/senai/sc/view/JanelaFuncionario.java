@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.senai.sc.view;
 
 import br.senai.sc.model.negocio.Funcionario;
@@ -33,6 +30,7 @@ public class JanelaFuncionario {
                     removefuncionario(funcionarios);
                     break;
                 case 3:
+                    alteraFuncionario(funcionarios);
                     break;
                 case 4:
                     break;
@@ -46,7 +44,7 @@ public class JanelaFuncionario {
         } while (opcao != 6);
     }
 
-    void adicionaFuncionario(List<Funcionario>funcionarios) {
+    void adicionaFuncionario(List<Funcionario> funcionarios) {
         Funcionario f = new Funcionario();
         f.setNome(JOptionPane.showInputDialog(
                 "Informe o nome do funcionário"));
@@ -77,14 +75,50 @@ public class JanelaFuncionario {
 
     }
 
-    private void listaFuncionarios(List<Funcionario>funcionarios) {
-           FuncionarioDAO dao = new FuncionarioDAO();
-           dao.listar(funcionarios);
+    private void listaFuncionarios(List<Funcionario> funcionarios) {
+        FuncionarioDAO dao = new FuncionarioDAO();
+        dao.listar(funcionarios);
     }
 
     private void removefuncionario(List<Funcionario> funcionarios) {
         FuncionarioDAO dao = new FuncionarioDAO();
-       String nome = JOptionPane.showInputDialog("Informe o nome do funcionário que deseja excluir");
-       dao.excluir(nome, funcionarios);
+        String nome = JOptionPane.showInputDialog("Informe o nome do funcionário que deseja excluir");
+        dao.excluir(nome, funcionarios);
     }
+
+    private void alteraFuncionario(List<Funcionario> funcionarios) {
+        FuncionarioDAO dao = new FuncionarioDAO();
+        String nome = JOptionPane.showInputDialog("Informe o nome do funcionário a ser alterado");
+        Funcionario fAltera = new Funcionario();
+
+        fAltera = dao.buscaFuncionarioByNome(nome, funcionarios);
+          if(fAltera != null){
+              
+        fAltera.setNome(JOptionPane.showInputDialog("Informe o nome",fAltera.getDataNascimento()));
+        fAltera.setCpf(JOptionPane.showInputDialog(
+                "Informe o CPF do funcionário",fAltera.getCpf()));
+        fAltera.setDataNascimento(JOptionPane.showInputDialog(
+                "Informe a data de nascimento do funcionário" , fAltera.getDataNascimento()));
+        fAltera.setRg(JOptionPane.showInputDialog(
+                "Informe o RG do funcionário",fAltera.getRg()));
+        fAltera.setEndereço(JOptionPane.showInputDialog(
+                "Informe o endereço do funcionário",fAltera.getEndereço()));
+        fAltera.setSalario(Double.parseDouble(JOptionPane.showInputDialog(
+                "Informe o salário do funcionário",fAltera.getSalario())));
+        fAltera.setDataAdmissao(JOptionPane.showInputDialog(
+                "Informe a data de admissão do funcionário",fAltera.getDataAdmissao()));
+        fAltera.setDataCadastro(JOptionPane.showInputDialog(
+                "Informe a data de cadastro do funcionário",fAltera.getDataCadastro()));
+        fAltera.setCtps(JOptionPane.showInputDialog(
+                "Informe o número da carteira de trabalho do funcionário",fAltera.getCtps()));
+        fAltera.setCargo(JOptionPane.showInputDialog(
+                "Informe o cargo do funcionário",fAltera.getCargo()));
+        fAltera.setTelefone(JOptionPane.showInputDialog(
+                "Informe o telefone do funcionário",fAltera.getTelefone()));
+        dao.altera(nome,funcionarios,fAltera);
+
+    }else{
+              JOptionPane.showMessageDialog(null,"Funcionário" +nome + "não existe");
+          }
+}
 }
