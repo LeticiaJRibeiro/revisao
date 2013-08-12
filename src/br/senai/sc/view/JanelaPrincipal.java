@@ -29,7 +29,8 @@ public class JanelaPrincipal {
                     + "\n2-cliente"
                     + "\n3-fornecedor"
                     + "\n4-transportadora"
-                    + "\n5-Sair"));
+                    +"\n5-Produto"
+                    + "\n6-Sair"));
             switch (opcao) {
                 case 1:
                    jf.menuFuncionario(funcionarios);
