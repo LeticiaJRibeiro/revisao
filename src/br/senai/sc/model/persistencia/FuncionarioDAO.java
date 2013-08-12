@@ -41,16 +41,34 @@ public class FuncionarioDAO {
         }
         JOptionPane.showMessageDialog(null, msg);
     }
-    public void excluir(String nome,List<Funcionario>funcionarios){
-       Funcionario fRemove = null;
-       for(Funcionario f: funcionarios){
-           if(f.getNome().equals(nome)){
-               fRemove=f;
-           }
-       }
+
+    public void excluir(String nome, List<Funcionario> funcionarios) {
+        Funcionario fRemove = null;
+        for (Funcionario f : funcionarios) {
+            if (f.getNome().equals(nome)) {
+                fRemove = f;
+            }
+        }
+        funcionarios.remove(fRemove);
 
 
+    }
+       //percorre todo o vetor de funcionarios até achar o nome o qual está procurando e seus dados serão mostrados
+    public Funcionario buscaFuncionarioByNome(String nome,
+            List<Funcionario> funcionarios) {
+        for (Funcionario fBusca : funcionarios) {
+            if (fBusca.getNome().equals(nome)) {
+                return fBusca;
+            }
+        }
+        return null;
 
+    }
 
+    public void altera(String nome,
+            List<Funcionario> funcionarios,
+            Funcionario fAltera) {
+        excluir(nome,funcionarios);
+        adicionar(fAltera,funcionarios);
     }
 }
