@@ -27,7 +27,8 @@ public class FuncionarioDAO {
     public void listar(List<Funcionario> funcionarios) {
         String msg = " ";
         for (Funcionario f : funcionarios) {
-            msg = msg + "\nNome:" + f.getNome()
+            msg = msg +"\n ID funcionário:"+ f.codigo
+                    +"\nNome:" + f.getNome()
                     + "\n Data de nascimento:" + f.getDataNascimento()
                     + "\n RG:" + f.getRg()
                     + "\n CPF:" + f.getCpf()
